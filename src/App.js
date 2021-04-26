@@ -8,6 +8,7 @@ import Favourites from './pages/Favourites/Favourites'
 import Songs from './pages/Songs/Songs'
 import StylePony from './pages/StylePony/StylePony'
 import Header from './components/Header'
+import PonyDetail from './pages/Category/PonyDetail'
 
 const App = () => {
     return (
@@ -19,8 +20,11 @@ const App = () => {
                         <Home />
                     </Route>
 
-                    <Route path='/category'>
+                    <Route exact path='/category'>
                         <Category />
+                    </Route>
+                    <Route path='/category/:ponyCat/:ponyId'>
+                        <PonyDetail />
                     </Route>
                     <Route path='/favourites'>
                         <Favourites />
