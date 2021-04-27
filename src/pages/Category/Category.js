@@ -15,7 +15,7 @@ const Category = () => {
 
     const [selectedCat, setSelectedCat] = useState(categories)
     const { ponyData, loading, error } = useContext(PonyDataContext)
-    console.log(ponyData)
+
     const ponyFiltered = ponyData.filter(
         (pony) =>
             pony.kind !== undefined &&

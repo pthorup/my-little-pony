@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
 
 import './App.css'
@@ -11,6 +11,18 @@ import Header from './components/Header'
 import PonyDetail from './pages/Category/PonyDetail'
 
 const App = () => {
+    const [favourites, setFavourites] = useState([])
+
+    const toggleFavourite = (ponyId) => {
+        // Handle logic of adding and removing id from favourites
+        const found = favourites.includes(ponyId)
+        if (found) {
+            setFavourites(favourites.filter((e) => e !== ponyId))
+        } else {
+            setFavourites((prev) => [...prev, ponyId])
+        }
+    }
+
     return (
         <>
             <main>
@@ -24,7 +36,10 @@ const App = () => {
                         <Category />
                     </Route>
                     <Route path='/category/:ponyCat/:ponyId'>
-                        <PonyDetail />
+                        <PonyDetail
+                            onFavouriteClick={toggleFavourite}
+                            favourites={favourites}
+                        />
                     </Route>
                     <Route path='/favourites'>
                         <Favourites />
