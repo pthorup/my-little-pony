@@ -52,11 +52,14 @@ const PonyDetail = ({ favourites, onFavouriteClick }) => {
                             </a>
                         </p>
 
-                        <div
-                            onClick={() => onFavouriteClick(id)}
-                            title='favourited'
-                        >
-                            {favourited ? '💜' : '🤍'}
+                        <div onClick={() => onFavouriteClick(id)}>
+                            <img
+                                src={`/images/${
+                                    favourited ? 'grey' : 'red'
+                                }-heart.svg`}
+                                width='100'
+                                alt='favourited'
+                            />
                         </div>
                     </div>
                 </div>
